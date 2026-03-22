@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Deekshit Home Services{% endblock %}</title>
+  <meta name="description" content="Professional plumbing and electrical services for your home. Fast, reliable, affordable. Available 24/7 for emergencies."/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+<!-- Emergency Banner -->
+<div class="emergency-banner" id="emergencyBanner">
+  <div class="container">
+    <span><i class="fas fa-bolt"></i> 24/7 Emergency Services Available</span>
+    <a href="tel:PHONE_PLACEHOLDER" class="emergency-call-btn"><i class="fas fa-phone-alt"></i> Call Now: [PHONE]</a>
+    <button class="banner-close" onclick="document.getElementById('emergencyBanner').style.display='none'"><i class="fas fa-times"></i></button>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="/" class="nav-logo">
+      <div class="logo-icon"><i class="fas fa-tools"></i></div>
+      <div class="logo-text">
+        <span class="logo-main">Deekshit</span>
+        <span class="logo-sub">Home Services</span>
+      </div>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/" class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">Home</a></li>
+      <li><a href="/services" class="nav-link {% if request.endpoint == 'services' %}active{% endif %}">Services</a></li>
+      <li><a href="/about" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">About Us</a></li>
+      <li><a href="/contact" class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a></li>
+      <li><a href="/book" class="nav-link nav-book-btn">Book Now</a></li>
+      {% if user %}
+        <li class="nav-user-dropdown">
+          <button class="nav-user-btn"><i class="fas fa-user-circle"></i> {{ user.full_name.split()[0] }} <i class="fas fa-chevron-down"></i></button>
+          <div class="dropdown-menu">
+            <a href="/dashboard"><i class="fas fa-th-large"></i> My Dashboard</a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </div>
+        </li>
+      {% else %}
+        <li><a href="/login" class="nav-link">Login</a></li>
+        <li><a href="/register" class="nav-link nav-register-btn">Create Account</a></li>
+      {% endif %}
+    </ul>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-container">
+      {% for cat, msg in messages %}
+        <div class="flash flash-{{ cat }}">
+          <i class="fas {% if cat == 'success' %}fa-check-circle{% elif cat == 'error' %}fa-exclamation-circle{% else %}fa-info-circle{% endif %}"></i>
+          {{ msg }}
+          <button onclick="this.parentElement.remove()"><i class="fas fa-times"></i></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<!-- PAGE CONTENT -->
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container footer-grid">
+
+      <div class="footer-col footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon"><i class="fas fa-tools"></i></div>
+          <div class="logo-text">
+            <span class="logo-main">Deekshit</span>
+            <span class="logo-sub">Home Services</span>
+          </div>
+        </div>
+        <p>Your trusted partner for all home plumbing and electrical needs. Quality work, honest pricing, guaranteed satisfaction.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="/services#plumbing">Pipe Repair & Replacement</a></li>
+          <li><a href="/services#plumbing">Leak Detection</a></li>
+          <li><a href="/services#plumbing">Drain Cleaning</a></li>
+          <li><a href="/services#electrical">Wiring & Rewiring</a></li>
+          <li><a href="/services#electrical">Fan & Light Installation</a></li>
+          <li><a href="/services#electrical">Switchboard Repair</a></li>
+          <li><a href="/services">View All Services →</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/book">Book a Service</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/register">Create Account</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h4>Get In Touch</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <span class="label">Call / WhatsApp</span>
+            <a href="tel:PHONE_PLACEHOLDER">[PHONE PLACEHOLDER]</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <span class="label">Email Us</span>
+            <a href="mailto:EMAIL_PLACEHOLDER">[EMAIL PLACEHOLDER]</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <span class="label">Our Address</span>
+            <span>[ADDRESS PLACEHOLDER]</span>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <span class="label">Working Hours</span>
+            <span>Mon–Sat: 7 AM – 9 PM<br/>Emergency: 24/7</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2024 Deekshit Home Services. All rights reserved.</p>
+      <p>Made with <i class="fas fa-heart" style="color:#e74c3c"></i> for your home.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

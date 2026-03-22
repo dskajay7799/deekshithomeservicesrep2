@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+{% block title %}Our Services – Deekshit Home Services{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="breadcrumb"><a href="/">Home</a> <i class="fas fa-chevron-right"></i> <span>Services</span></div>
+    <h1>Our <span class="gradient-text">Services</span></h1>
+    <p>Every plumbing and electrical need — handled by a skilled professional with 8+ years of experience.</p>
+  </div>
+</section>
+
+<!-- SERVICE FILTER -->
+<section class="section services-full-page" id="services-top">
+  <div class="container">
+
+    <div class="service-filter-bar">
+      <button class="sfb-btn active" data-filter="all"><i class="fas fa-th-large"></i> All Services</button>
+      <button class="sfb-btn" data-filter="plumbing" id="plumbing"><i class="fas fa-faucet"></i> Plumbing</button>
+      <button class="sfb-btn" data-filter="electrical" id="electrical"><i class="fas fa-bolt"></i> Electrical</button>
+      <button class="sfb-btn" data-filter="emergency"><i class="fas fa-exclamation-triangle"></i> Emergency</button>
+    </div>
+
+    <!-- PLUMBING SECTION -->
+    <div class="services-section-title" data-section="plumbing">
+      <div class="sst-icon plumbing"><i class="fas fa-faucet"></i></div>
+      <div>
+        <h2>Plumbing Services</h2>
+        <p>Complete residential plumbing solutions — from minor repairs to full installations.</p>
+      </div>
+    </div>
+
+    <div class="services-accordion-grid" id="servicesAccordionGrid">
+
+      <!-- Each card: click header to expand -->
+      <div class="sac" data-cat="plumbing">
+        <div class="sac-header">
+          <div class="sac-icon plumbing"><i class="fas fa-search"></i></div>
+          <div class="sac-title-block">
+            <h3>Leak Detection & Repair</h3>
+            <span class="sac-tag">Most Requested</span>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Water leaks can cause severe structural damage if ignored. We use pressure testing and visual inspection to accurately locate leaks in walls, floors, ceilings, and underground lines — then fix them permanently.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Hidden wall & ceiling leak detection</li>
+            <li><i class="fas fa-check"></i> Underground pipe leak repair</li>
+            <li><i class="fas fa-check"></i> Slab leak identification</li>
+            <li><i class="fas fa-check"></i> Tap & joint leak sealing</li>
+            <li><i class="fas fa-check"></i> Water meter leak repair</li>
+          </ul>
+          <a href="/book?service=Leak+Detection" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="plumbing">
+        <div class="sac-header">
+          <div class="sac-icon plumbing"><i class="fas fa-grip-lines"></i></div>
+          <div class="sac-title-block">
+            <h3>Pipe Repair & Replacement</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>We handle burst pipes, corroded iron pipes, leaking joints, and full pipe replacements with modern PVC, CPVC, or PPR piping systems for long-lasting results.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Burst & broken pipe repair</li>
+            <li><i class="fas fa-check"></i> Old iron pipe replacement with PVC/CPVC</li>
+            <li><i class="fas fa-check"></i> Concealed & open plumbing lines</li>
+            <li><i class="fas fa-check"></i> Overhead & underground piping</li>
+            <li><i class="fas fa-check"></i> New plumbing for extensions</li>
+          </ul>
+          <a href="/book?service=Pipe+Repair" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="plumbing">
+        <div class="sac-header">
+          <div class="sac-icon plumbing"><i class="fas fa-toilet"></i></div>
+          <div class="sac-title-block">
+            <h3>Toilet & Bathroom Fitting</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Complete bathroom plumbing — from new toilet installation to shower fitting, basin mounting, and all bathroom accessories. We supply fittings or install yours.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Indian & western toilet installation</li>
+            <li><i class="fas fa-check"></i> Flush tank & valve repair</li>
+            <li><i class="fas fa-check"></i> Shower & basin installation</li>
+            <li><i class="fas fa-check"></i> Bathroom faucets & mixers</li>
+            <li><i class="fas fa-check"></i> Bidet & health faucet fitting</li>
+            <li><i class="fas fa-check"></i> Complete bathroom plumbing setup</li>
+          </ul>
+          <a href="/book?service=Bathroom+Fitting" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="plumbing">
+        <div class="sac-header">
+          <div class="sac-icon plumbing"><i class="fas fa-hot-tub"></i></div>
+          <div class="sac-title-block">
+            <h3>Water Heater / Geyser Services</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>From installing a brand-new geyser to repairing heating elements and thermostat issues — we service all major brands. Solar water heater connections also handled.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> New geyser installation</li>
+            <li><i class="fas fa-check"></i> Heating element replacement</li>
+            <li><i class="fas fa-check"></i> Thermostat repair</li>
+            <li><i class="fas fa-check"></i> Solar water heater connection</li>
+            <li><i class="fas fa-check"></i> Safety valve replacement</li>
+          </ul>
+          <a href="/book?service=Geyser+Service" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="plumbing">
+        <div class="sac-header">
+          <div class="sac-icon plumbing"><i class="fas fa-stream"></i></div>
+          <div class="sac-title-block">
+            <h3>Drain Cleaning & Unblocking</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Blocked kitchen sinks, clogged bathroom drains, and choked sewage lines — we clear them all quickly using manual rodding, drain snakes, and jetting where needed.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Kitchen sink drain unblocking</li>
+            <li><i class="fas fa-check"></i> Bathroom drain cleaning</li>
+            <li><i class="fas fa-check"></i> Main sewage line clearance</li>
+            <li><i class="fas fa-check"></i> Grease trap cleaning</li>
+            <li><i class="fas fa-check"></i> Drain pipe inspection</li>
+          </ul>
+          <a href="/book?service=Drain+Cleaning" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="plumbing">
+        <div class="sac-header">
+          <div class="sac-icon plumbing"><i class="fas fa-tachometer-alt"></i></div>
+          <div class="sac-title-block">
+            <h3>Water Pressure Issues</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Low pressure or fluctuating water pressure is usually due to pipe blockages, pressure regulator failure, or pump issues. We diagnose and fix the root cause.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Pressure regulator repair/replacement</li>
+            <li><i class="fas fa-check"></i> Booster pump installation</li>
+            <li><i class="fas fa-check"></i> Pipe scale removal</li>
+            <li><i class="fas fa-check"></i> Flow restrictor adjustment</li>
+          </ul>
+          <a href="/book?service=Water+Pressure" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="plumbing">
+        <div class="sac-header">
+          <div class="sac-icon plumbing"><i class="fas fa-cube"></i></div>
+          <div class="sac-title-block">
+            <h3>Overhead Tank & Sump</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Overhead water tank installation, sump pit construction, ball valve fitting, float valve repair, and tank cleaning services for homes and apartments.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Tank installation & mounting</li>
+            <li><i class="fas fa-check"></i> Float valve & ball cock repair</li>
+            <li><i class="fas fa-check"></i> Tank cleaning & disinfection</li>
+            <li><i class="fas fa-check"></i> Inlet/outlet pipe connections</li>
+          </ul>
+          <a href="/book?service=Tank+Services" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="plumbing kitchen">
+        <div class="sac-header">
+          <div class="sac-icon plumbing"><i class="fas fa-utensils"></i></div>
+          <div class="sac-title-block">
+            <h3>Kitchen Plumbing</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Kitchen sink installation, tap replacement, under-sink connections, washing machine inlet/outlet pipes, and RO system water connections.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Kitchen sink & tap fitting</li>
+            <li><i class="fas fa-check"></i> Dishwasher & washing machine connection</li>
+            <li><i class="fas fa-check"></i> RO purifier water connection</li>
+            <li><i class="fas fa-check"></i> Waste disposal unit plumbing</li>
+          </ul>
+          <a href="/book?service=Kitchen+Plumbing" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <!-- ELECTRICAL SECTION -->
+      <div class="services-section-title full-width" data-section="electrical">
+        <div class="sst-icon electrical"><i class="fas fa-bolt"></i></div>
+        <div>
+          <h2>Electrical Services</h2>
+          <p>Safe, certified electrical work for your entire home — big or small.</p>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="electrical">
+        <div class="sac-header">
+          <div class="sac-icon electrical"><i class="fas fa-project-diagram"></i></div>
+          <div class="sac-title-block">
+            <h3>Wiring & Rewiring</h3>
+            <span class="sac-tag">Popular</span>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Full house wiring for new homes, partial rewiring for renovations, and upgrading old aluminum wiring to safer copper wiring — all done to IS standard codes.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> New house wiring (concealed & open)</li>
+            <li><i class="fas fa-check"></i> Partial rewiring & extension wiring</li>
+            <li><i class="fas fa-check"></i> Aluminum to copper wire upgrade</li>
+            <li><i class="fas fa-check"></i> Conduit pipe wiring</li>
+            <li><i class="fas fa-check"></i> Power circuit & lighting circuit</li>
+          </ul>
+          <a href="/book?service=Wiring" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="electrical">
+        <div class="sac-header">
+          <div class="sac-icon electrical"><i class="fas fa-lightbulb"></i></div>
+          <div class="sac-title-block">
+            <h3>Fan & Light Installation</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Supply and fitting of all types of fans and lights. Whether it's a simple ceiling fan or a decorative chandelier, we ensure safe and perfect installation.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Ceiling & table fan installation</li>
+            <li><i class="fas fa-check"></i> Exhaust & ventilation fan fitting</li>
+            <li><i class="fas fa-check"></i> LED bulb & tube light installation</li>
+            <li><i class="fas fa-check"></i> Chandelier & decorative light fitting</li>
+            <li><i class="fas fa-check"></i> Outdoor & garden light setup</li>
+            <li><i class="fas fa-check"></i> Night lamp & sensor light installation</li>
+          </ul>
+          <a href="/book?service=Fan+Light+Installation" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="electrical">
+        <div class="sac-header">
+          <div class="sac-icon electrical"><i class="fas fa-toggle-on"></i></div>
+          <div class="sac-title-block">
+            <h3>Switchboard & MCB Repair</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Faulty switches, broken sockets, tripping MCBs, and full switchboard replacement. We also install new power points wherever you need them.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Switch & socket replacement</li>
+            <li><i class="fas fa-check"></i> MCB & ELCB installation/replacement</li>
+            <li><i class="fas fa-check"></i> Full DB (distribution board) upgrade</li>
+            <li><i class="fas fa-check"></i> New power point installation</li>
+            <li><i class="fas fa-check"></i> Fuse box repair</li>
+          </ul>
+          <a href="/book?service=Switchboard+Repair" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="electrical">
+        <div class="sac-header">
+          <div class="sac-icon electrical"><i class="fas fa-battery-full"></i></div>
+          <div class="sac-title-block">
+            <h3>Inverter & UPS Installation</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Complete inverter setup from cable wiring to battery connection and load balancing. We ensure your critical appliances stay on during power cuts.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Inverter installation & wiring</li>
+            <li><i class="fas fa-check"></i> Battery cable connection</li>
+            <li><i class="fas fa-check"></i> UPS setup for computers</li>
+            <li><i class="fas fa-check"></i> Load calculation & balancing</li>
+            <li><i class="fas fa-check"></i> Inverter fault diagnosis</li>
+          </ul>
+          <a href="/book?service=Inverter+Installation" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="electrical">
+        <div class="sac-header">
+          <div class="sac-icon electrical"><i class="fas fa-exclamation-triangle"></i></div>
+          <div class="sac-title-block">
+            <h3>Short Circuit Repair</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Electrical short circuits are dangerous. We locate the fault, repair the damaged wiring, and ensure your system is fully safe before leaving.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Fault location & diagnosis</li>
+            <li><i class="fas fa-check"></i> Damaged wire repair/replacement</li>
+            <li><i class="fas fa-check"></i> Insulation testing</li>
+            <li><i class="fas fa-check"></i> Safety check after repair</li>
+          </ul>
+          <a href="/book?service=Short+Circuit+Repair" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="electrical">
+        <div class="sac-header">
+          <div class="sac-icon electrical"><i class="fas fa-earth-asia"></i></div>
+          <div class="sac-title-block">
+            <h3>Earthing & Grounding</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Proper earthing protects your home from electric shocks and appliance damage. We install and test earthing systems as per IS 3043 standards.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Plate & pipe earthing installation</li>
+            <li><i class="fas fa-check"></i> Earth continuity testing</li>
+            <li><i class="fas fa-check"></i> Equipment grounding</li>
+            <li><i class="fas fa-check"></i> Earth leakage protection</li>
+          </ul>
+          <a href="/book?service=Earthing" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="electrical">
+        <div class="sac-header">
+          <div class="sac-icon electrical"><i class="fas fa-water-ladder"></i></div>
+          <div class="sac-title-block">
+            <h3>Water Pump Wiring</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Motor starter panels, submersible pump wiring, pump controller installation, and automated pump controls for overhead tanks.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Motor starter installation</li>
+            <li><i class="fas fa-check"></i> Submersible pump wiring</li>
+            <li><i class="fas fa-check"></i> Pump auto-controller setup</li>
+            <li><i class="fas fa-check"></i> Overload protection fitting</li>
+          </ul>
+          <a href="/book?service=Pump+Wiring" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="electrical">
+        <div class="sac-header">
+          <div class="sac-icon electrical"><i class="fas fa-plug"></i></div>
+          <div class="sac-title-block">
+            <h3>AC & Appliance Connection</h3>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Dedicated power point and circuit for air conditioners, refrigerators, washing machines, and other heavy appliances to prevent overloading.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> AC power point & wiring</li>
+            <li><i class="fas fa-check"></i> Dedicated circuit for heavy appliances</li>
+            <li><i class="fas fa-check"></i> Washing machine earthing</li>
+            <li><i class="fas fa-check"></i> Refrigerator & microwave socket</li>
+          </ul>
+          <a href="/book?service=Appliance+Connection" class="btn btn-primary">Book This Service</a>
+        </div>
+      </div>
+
+      <!-- EMERGENCY -->
+      <div class="services-section-title full-width" data-section="emergency">
+        <div class="sst-icon emergency"><i class="fas fa-exclamation-circle"></i></div>
+        <div>
+          <h2>Emergency Services</h2>
+          <p>Day or night, we respond to home emergencies within the hour.</p>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="emergency plumbing electrical">
+        <div class="sac-header">
+          <div class="sac-icon emergency"><i class="fas fa-hand-holding-water"></i></div>
+          <div class="sac-title-block">
+            <h3>Emergency Plumbing</h3>
+            <span class="sac-tag emergency-tag">24/7</span>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Burst pipes, overflowing tanks, blocked main drains, and flooding situations — we respond immediately any time of day or night.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Burst pipe emergency shut-off</li>
+            <li><i class="fas fa-check"></i> Tank overflow control</li>
+            <li><i class="fas fa-check"></i> Sewer overflow clearance</li>
+            <li><i class="fas fa-check"></i> Water supply restoration</li>
+          </ul>
+          <a href="tel:PHONE" class="btn btn-danger"><i class="fas fa-phone-alt"></i> Call Emergency Line</a>
+        </div>
+      </div>
+
+      <div class="sac" data-cat="emergency electrical">
+        <div class="sac-header">
+          <div class="sac-icon emergency"><i class="fas fa-fire-alt"></i></div>
+          <div class="sac-title-block">
+            <h3>Emergency Electrical</h3>
+            <span class="sac-tag emergency-tag">24/7</span>
+          </div>
+          <div class="sac-toggle"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="sac-body">
+          <p>Complete power failure, sparking wires, electrical burning smell, or tripped mains — these are dangerous situations that need immediate professional attention.</p>
+          <ul class="sac-list">
+            <li><i class="fas fa-check"></i> Power failure diagnosis</li>
+            <li><i class="fas fa-check"></i> Sparking/burning wire repair</li>
+            <li><i class="fas fa-check"></i> Emergency MCB restoration</li>
+            <li><i class="fas fa-check"></i> Shock-hazard neutralization</li>
+          </ul>
+          <a href="tel:PHONE" class="btn btn-danger"><i class="fas fa-phone-alt"></i> Call Emergency Line</a>
+        </div>
+      </div>
+
+    </div><!-- /accordion grid -->
+  </div>
+</section>
+
+<!-- BOOK CTA -->
+<section class="cta-section">
+  <div class="container cta-content">
+    <div>
+      <h2>Don't See What You Need?</h2>
+      <p>Call us or send a message — we handle almost every home plumbing and electrical need.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="/book" class="btn btn-primary btn-lg"><i class="fas fa-calendar-check"></i> Book a Service</a>
+      <a href="/contact" class="btn btn-outline-white btn-lg"><i class="fas fa-comment-dots"></i> Ask a Question</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% block title %}Create Account – Deekshit Home Services{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+  <div class="auth-bg">
+    <div class="auth-overlay"></div>
+  </div>
+  <div class="auth-container">
+    <div class="auth-card auth-card-wide">
+      <div class="auth-card-header">
+        <div class="auth-logo">
+          <div class="logo-icon"><i class="fas fa-tools"></i></div>
+        </div>
+        <h2>Create Your Account</h2>
+        <p>Join Deekshit Home Services and book services in seconds</p>
+      </div>
+
+      <form class="auth-form" id="registerForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="full_name"><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" id="full_name" name="full_name" placeholder="Your full name" required autocomplete="name"/>
+          </div>
+          <div class="form-group">
+            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email"/>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="password"><i class="fas fa-lock"></i> Password</label>
+            <div class="password-field">
+              <input type="password" id="password" name="password" placeholder="Min. 6 characters" required autocomplete="new-password"/>
+              <button type="button" class="pw-toggle" id="pwToggle1"><i class="fas fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirm_password"><i class="fas fa-lock"></i> Confirm Password</label>
+            <div class="password-field">
+              <input type="password" id="confirm_password" name="confirm_password" placeholder="Repeat password" required autocomplete="new-password"/>
+              <button type="button" class="pw-toggle" id="pwToggle2"><i class="fas fa-eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Password strength bar -->
+        <div class="pw-strength-bar">
+          <div class="pw-strength-fill" id="pwStrengthFill"></div>
+        </div>
+        <div class="pw-strength-label" id="pwStrengthLabel"></div>
+
+        <div class="form-alert" id="formAlert"></div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg" id="registerBtn">
+          <span class="btn-text"><i class="fas fa-user-plus"></i> Create Account</span>
+          <span class="btn-loading" style="display:none"><i class="fas fa-spinner fa-spin"></i> Creating account...</span>
+        </button>
+
+        <p class="form-terms">By creating an account, you agree to our service terms. Your data is safe with us.</p>
+      </form>
+
+      <div class="auth-divider"><span>or</span></div>
+      <div class="auth-footer">
+        <p>Already have an account? <a href="/login">Log in →</a></p>
+        <p style="margin-top:0.5rem"><a href="/">← Back to Home</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Password strength checker
+document.getElementById('password').addEventListener('input', function() {
+  const pw = this.value;
+  const fill = document.getElementById('pwStrengthFill');
+  const label = document.getElementById('pwStrengthLabel');
+  let strength = 0;
+  if (pw.length >= 6) strength++;
+  if (pw.length >= 10) strength++;
+  if (/[A-Z]/.test(pw)) strength++;
+  if (/[0-9]/.test(pw)) strength++;
+  if (/[^A-Za-z0-9]/.test(pw)) strength++;
+
+  const pct = (strength / 5) * 100;
+  fill.style.width = pct + '%';
+  fill.className = 'pw-strength-fill';
+  if (strength <= 1) { fill.classList.add('weak'); label.textContent = 'Weak'; label.className = 'pw-strength-label weak'; }
+  else if (strength <= 3) { fill.classList.add('medium'); label.textContent = 'Medium'; label.className = 'pw-strength-label medium'; }
+  else { fill.classList.add('strong'); label.textContent = 'Strong'; label.className = 'pw-strength-label strong'; }
+});
+
+['pwToggle1', 'pwToggle2'].forEach((id, i) => {
+  document.getElementById(id).addEventListener('click', function() {
+    const pwId = i === 0 ? 'password' : 'confirm_password';
+    const pw = document.getElementById(pwId);
+    const icon = this.querySelector('i');
+    pw.type = pw.type === 'password' ? 'text' : 'password';
+    icon.className = pw.type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
+  });
+});
+
+document.getElementById('registerForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('registerBtn');
+  btn.querySelector('.btn-text').style.display = 'none';
+  btn.querySelector('.btn-loading').style.display = 'inline';
+  btn.disabled = true;
+
+  const alert = document.getElementById('formAlert');
+  alert.className = 'form-alert';
+  alert.textContent = '';
+
+  const data = {
+    full_name: document.getElementById('full_name').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value,
+    confirm_password: document.getElementById('confirm_password').value
+  };
+
+  try {
+    const res = await fetch('/register', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    if (result.success) {
+      alert.className = 'form-alert success';
+      alert.innerHTML = '<i class="fas fa-check-circle"></i> Account created! Welcome to Deekshit Home Services. Redirecting...';
+      setTimeout(() => window.location.href = result.redirect || '/', 1200);
+    } else {
+      alert.className = 'form-alert error';
+      alert.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + (result.errors ? result.errors.join('<br>') : 'Registration failed.');
+      btn.querySelector('.btn-text').style.display = 'inline';
+      btn.querySelector('.btn-loading').style.display = 'none';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    alert.className = 'form-alert error';
+    alert.innerHTML = '<i class="fas fa-exclamation-circle"></i> Network error. Please try again.';
+    btn.querySelector('.btn-text').style.display = 'inline';
+    btn.querySelector('.btn-loading').style.display = 'none';
+    btn.disabled = false;
+  }
+});
+</script>
+{% endblock %}

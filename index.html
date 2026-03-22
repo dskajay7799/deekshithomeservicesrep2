@@ -1,0 +1,335 @@
+{% extends 'base.html' %}
+{% block title %}Deekshit Home Services – Plumbing & Electrical Experts{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="particles"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-badge animate-fade-up" style="animation-delay:0.1s">
+      <i class="fas fa-shield-alt"></i> Trusted by 500+ Families
+    </div>
+    <h1 class="hero-title animate-fade-up" style="animation-delay:0.2s">
+      Your Home Deserves<br/>
+      <span class="gradient-text">Expert Care</span>
+    </h1>
+    <p class="hero-subtitle animate-fade-up" style="animation-delay:0.3s">
+      Professional plumbing &amp; electrical services at your doorstep.<br/>
+      Fast response, quality work, honest pricing — guaranteed.
+    </p>
+    <div class="hero-actions animate-fade-up" style="animation-delay:0.4s">
+      <a href="/book" class="btn btn-primary btn-lg"><i class="fas fa-calendar-check"></i> Book a Service</a>
+      <a href="/services" class="btn btn-outline-white btn-lg"><i class="fas fa-tools"></i> Our Services</a>
+    </div>
+    <div class="hero-stats animate-fade-up" style="animation-delay:0.5s">
+      <div class="hero-stat">
+        <span class="stat-num" data-target="500">0</span><span>+</span>
+        <span class="stat-label">Happy Clients</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-num" data-target="8">0</span><span>+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-num" data-target="24">0</span><span>/7</span>
+        <span class="stat-label">Emergency Help</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-num" data-target="100">0</span><span>%</span>
+        <span class="stat-label">Satisfaction Rate</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint animate-fade-up" style="animation-delay:0.8s">
+    <span>Scroll to explore</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- QUICK CONTACT BAR -->
+<section class="quick-contact-bar">
+  <div class="container qcb-grid">
+    <div class="qcb-item">
+      <i class="fas fa-phone-alt"></i>
+      <div>
+        <span class="qcb-label">Call / WhatsApp</span>
+        <a href="tel:PHONE">[PHONE PLACEHOLDER]</a>
+      </div>
+    </div>
+    <div class="qcb-divider"></div>
+    <div class="qcb-item">
+      <i class="fas fa-envelope"></i>
+      <div>
+        <span class="qcb-label">Email Us</span>
+        <a href="mailto:EMAIL">[EMAIL PLACEHOLDER]</a>
+      </div>
+    </div>
+    <div class="qcb-divider"></div>
+    <div class="qcb-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <div>
+        <span class="qcb-label">Our Location</span>
+        <span>[ADDRESS PLACEHOLDER]</span>
+      </div>
+    </div>
+    <div class="qcb-divider"></div>
+    <div class="qcb-item">
+      <i class="fas fa-clock"></i>
+      <div>
+        <span class="qcb-label">Working Hours</span>
+        <span>Mon–Sat 7AM–9PM | Emergency 24/7</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OVERVIEW -->
+<section class="section services-overview" id="services-overview">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Complete Home <span class="gradient-text">Solutions</span></h2>
+      <p class="section-subtitle">From a dripping tap to a full electrical rewire — we handle it all with precision and care.</p>
+    </div>
+
+    <div class="service-category-tabs">
+      <button class="scat-tab active" data-cat="all">All Services</button>
+      <button class="scat-tab" data-cat="plumbing"><i class="fas fa-faucet"></i> Plumbing</button>
+      <button class="scat-tab" data-cat="electrical"><i class="fas fa-bolt"></i> Electrical</button>
+    </div>
+
+    <div class="services-grid" id="servicesGrid">
+
+      <!-- PLUMBING CARDS -->
+      <div class="service-card" data-cat="plumbing">
+        <div class="sc-icon plumbing"><i class="fas fa-tint"></i></div>
+        <h3>Leak Detection & Repair</h3>
+        <p>Precision detection of hidden water leaks in walls, floors, and underground pipes using advanced techniques.</p>
+        <a href="/services#plumbing" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-cat="plumbing">
+        <div class="sc-icon plumbing"><i class="fas fa-pipe-section"></i></div>
+        <h3>Pipe Repair & Replacement</h3>
+        <p>Burst pipes, corroded lines, PVC/CPVC upgrades — we fix and replace all kinds of piping systems.</p>
+        <a href="/services#plumbing" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-cat="plumbing">
+        <div class="sc-icon plumbing"><i class="fas fa-toilet"></i></div>
+        <h3>Toilet & Bathroom Fitting</h3>
+        <p>New toilet installation, flush repair, bathroom fittings, shower heads, and complete bathroom plumbing.</p>
+        <a href="/services#plumbing" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-cat="plumbing">
+        <div class="sc-icon plumbing"><i class="fas fa-fire-extinguisher"></i></div>
+        <h3>Water Heater Services</h3>
+        <p>Geyser installation, repair, and replacement. All brands serviced. Solar heater connections too.</p>
+        <a href="/services#plumbing" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- ELECTRICAL CARDS -->
+      <div class="service-card" data-cat="electrical">
+        <div class="sc-icon electrical"><i class="fas fa-bolt"></i></div>
+        <h3>Wiring & Rewiring</h3>
+        <p>Complete home wiring, partial rewiring, concealed conduit work, and safe copper wiring upgrades.</p>
+        <a href="/services#electrical" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-cat="electrical">
+        <div class="sc-icon electrical"><i class="fas fa-lightbulb"></i></div>
+        <h3>Fan & Light Installation</h3>
+        <p>Ceiling fans, LED lights, chandeliers, exhaust fans — supply, fitting, and wiring all in one visit.</p>
+        <a href="/services#electrical" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-cat="electrical">
+        <div class="sc-icon electrical"><i class="fas fa-plug"></i></div>
+        <h3>Switchboard & MCB Repair</h3>
+        <p>Faulty switchboards, tripping MCBs, ELCB installation, earthing, and distribution board upgrades.</p>
+        <a href="/services#electrical" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-cat="electrical">
+        <div class="sc-icon electrical"><i class="fas fa-battery-full"></i></div>
+        <h3>Inverter & UPS Setup</h3>
+        <p>Inverter installation, battery connection, UPS wiring, and maintenance for uninterrupted power.</p>
+        <a href="/services#electrical" class="sc-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+
+    <div class="text-center" style="margin-top:3rem">
+      <a href="/services" class="btn btn-primary btn-lg"><i class="fas fa-th-large"></i> View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section why-us">
+  <div class="why-us-bg"></div>
+  <div class="container">
+    <div class="section-header light">
+      <span class="section-tag">Why Us?</span>
+      <h2 class="section-title">The Deekshit <span class="gradient-text">Difference</span></h2>
+      <p class="section-subtitle">We don't just fix things — we earn your trust, one home at a time.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-clock"></i></div>
+        <h3>Fast Response</h3>
+        <p>We reach your home within 60–90 minutes of your call. No long waits, no broken promises.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-rupee-sign"></i></div>
+        <h3>Transparent Pricing</h3>
+        <p>Get a clear quote before work begins. No hidden charges, no surprises on your bill.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-user-check"></i></div>
+        <h3>Licensed & Skilled</h3>
+        <p>Certified, experienced technician with 8+ years in residential plumbing and electrical work.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Work Guarantee</h3>
+        <p>All jobs come with a service warranty. We stand behind our work — if it fails, we fix it free.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-broom"></i></div>
+        <h3>Clean & Tidy</h3>
+        <p>We treat your home with respect. All work areas are cleaned up thoroughly before we leave.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-headset"></i></div>
+        <h3>24/7 Emergency</h3>
+        <p>Water burst at midnight? Power failure on a Sunday? We're always just one call away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Simple Process</span>
+      <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+      <p class="section-subtitle">Getting your home fixed is just 4 easy steps.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
+        <h3>Book Online</h3>
+        <p>Use our easy booking form to schedule a service at your preferred date and time.</p>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i class="fas fa-phone-alt"></i></div>
+        <h3>We Confirm</h3>
+        <p>Our technician calls you within 2 hours to confirm the appointment and discuss the issue.</p>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i class="fas fa-tools"></i></div>
+        <h3>We Fix It</h3>
+        <p>Our expert arrives on time, diagnoses the problem, gives a quote, and gets to work.</p>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-icon"><i class="fas fa-star"></i></div>
+        <h3>You're Happy</h3>
+        <p>Job done, area cleaned up. Pay only after you're fully satisfied with the work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="testimonials-bg"></div>
+  <div class="container">
+    <div class="section-header light">
+      <span class="section-tag">Reviews</span>
+      <h2 class="section-title">What Our Clients <span class="gradient-text">Say</span></h2>
+    </div>
+    <div class="testimonials-slider" id="testimonialsSlider">
+      <div class="testi-track" id="testiTrack">
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Our kitchen had a major pipe burst at 11 PM. They responded within an hour and fixed it completely. Truly 24/7 service!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RK</div>
+            <div><strong>Ramesh Kumar</strong><span>Vijayawada</span></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Got all the electrical wiring done for my new house. Very professional, explained everything clearly, and the pricing was very fair."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">PL</div>
+            <div><strong>Priya Lakshmi</strong><span>Guntur</span></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Bathroom fittings, geyser, new switchboard — all done in one day! Extremely efficient and clean. Highly recommend."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SK</div>
+            <div><strong>Suresh Babu</strong><span>Krishna District</span></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <p>"Drain was blocked for weeks and three other plumbers couldn't fix it. Deekshit identified the root cause and cleared it in 30 minutes!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AM</div>
+            <div><strong>Anitha Murthy</strong><span>Eluru</span></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Inverter installation and all motor wiring done perfectly. No shorts, no issues. Very trustworthy and honest person."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">VR</div>
+            <div><strong>Venkat Rao</strong><span>Rajahmundry</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="testi-controls">
+      <button class="testi-btn" id="testiPrev"><i class="fas fa-chevron-left"></i></button>
+      <div class="testi-dots" id="testiDots"></div>
+      <button class="testi-btn" id="testiNext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-section">
+  <div class="container cta-content">
+    <div>
+      <h2>Ready to Fix Your Home?</h2>
+      <p>Book a service today and get a free inspection on your first visit.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="/book" class="btn btn-primary btn-lg"><i class="fas fa-calendar-check"></i> Book Now</a>
+      <a href="tel:PHONE" class="btn btn-outline-white btn-lg"><i class="fas fa-phone-alt"></i> Call Directly</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}Login – Deekshit Home Services{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+  <div class="auth-bg">
+    <div class="auth-overlay"></div>
+  </div>
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <div class="auth-logo">
+          <div class="logo-icon"><i class="fas fa-tools"></i></div>
+        </div>
+        <h2>Welcome Back</h2>
+        <p>Log in to manage your bookings and services</p>
+      </div>
+
+      <form class="auth-form" id="loginForm">
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email"/>
+          <span class="field-error" id="emailError"></span>
+        </div>
+        <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <div class="password-field">
+            <input type="password" id="password" name="password" placeholder="Your password" required autocomplete="current-password"/>
+            <button type="button" class="pw-toggle" id="pwToggle"><i class="fas fa-eye"></i></button>
+          </div>
+          <span class="field-error" id="passwordError"></span>
+        </div>
+
+        <div class="form-alert" id="formAlert"></div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg" id="loginBtn">
+          <span class="btn-text"><i class="fas fa-sign-in-alt"></i> Log In</span>
+          <span class="btn-loading" style="display:none"><i class="fas fa-spinner fa-spin"></i> Logging in...</span>
+        </button>
+      </form>
+
+      <div class="auth-divider"><span>or</span></div>
+      <div class="auth-footer">
+        <p>Don't have an account? <a href="/register">Create one free →</a></p>
+        <p style="margin-top:0.5rem"><a href="/">← Back to Home</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('loginBtn');
+  btn.querySelector('.btn-text').style.display = 'none';
+  btn.querySelector('.btn-loading').style.display = 'inline';
+  btn.disabled = true;
+
+  const alert = document.getElementById('formAlert');
+  alert.className = 'form-alert';
+  alert.textContent = '';
+
+  const data = {
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value
+  };
+
+  try {
+    const res = await fetch('/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    if (result.success) {
+      alert.className = 'form-alert success';
+      alert.innerHTML = '<i class="fas fa-check-circle"></i> Welcome back, ' + result.name + '! Redirecting...';
+      setTimeout(() => window.location.href = result.redirect || '/', 1000);
+    } else {
+      alert.className = 'form-alert error';
+      alert.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + (result.errors ? result.errors.join(' ') : 'Login failed.');
+      btn.querySelector('.btn-text').style.display = 'inline';
+      btn.querySelector('.btn-loading').style.display = 'none';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    alert.className = 'form-alert error';
+    alert.innerHTML = '<i class="fas fa-exclamation-circle"></i> Network error. Please try again.';
+    btn.querySelector('.btn-text').style.display = 'inline';
+    btn.querySelector('.btn-loading').style.display = 'none';
+    btn.disabled = false;
+  }
+});
+
+document.getElementById('pwToggle').addEventListener('click', function() {
+  const pw = document.getElementById('password');
+  const icon = this.querySelector('i');
+  if (pw.type === 'password') {
+    pw.type = 'text';
+    icon.className = 'fas fa-eye-slash';
+  } else {
+    pw.type = 'password';
+    icon.className = 'fas fa-eye';
+  }
+});
+</script>
+{% endblock %}

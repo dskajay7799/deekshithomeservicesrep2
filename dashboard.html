@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}My Dashboard – Deekshit Home Services{% endblock %}
+
+{% block content %}
+
+<section class="page-hero page-hero-sm">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <h1>My <span class="gradient-text">Dashboard</span></h1>
+    <p>Welcome back, {{ user.full_name }}! Manage your bookings here.</p>
+  </div>
+</section>
+
+<section class="section dashboard-section">
+  <div class="container">
+
+    <!-- PROFILE SUMMARY -->
+    <div class="dash-profile-bar">
+      <div class="dpb-avatar">{{ user.full_name[0] | upper }}</div>
+      <div class="dpb-info">
+        <h2>{{ user.full_name }}</h2>
+        <span><i class="fas fa-envelope"></i> {{ user.email }}</span>
+        <span><i class="fas fa-phone"></i> {{ user.phone }}</span>
+        <span><i class="fas fa-calendar"></i> Member since {{ user.created_at.strftime('%B %Y') }}</span>
+      </div>
+      <a href="/book" class="btn btn-primary"><i class="fas fa-plus"></i> New Booking</a>
+    </div>
+
+    <!-- BOOKING STATS -->
+    <div class="dash-stats">
+      <div class="dash-stat">
+        <span class="ds-num">{{ bookings|length }}</span>
+        <span class="ds-label">Total Bookings</span>
+      </div>
+      <div class="dash-stat">
+        <span class="ds-num">{{ bookings|selectattr('status', 'equalto', 'Pending')|list|length }}</span>
+        <span class="ds-label">Pending</span>
+      </div>
+      <div class="dash-stat">
+        <span class="ds-num">{{ bookings|selectattr('status', 'equalto', 'Confirmed')|list|length }}</span>
+        <span class="ds-label">Confirmed</span>
+      </div>
+      <div class="dash-stat">
+        <span class="ds-num">{{ bookings|selectattr('status', 'equalto', 'Completed')|list|length }}</span>
+        <span class="ds-label">Completed</span>
+      </div>
+    </div>
+
+    <!-- BOOKINGS TABLE -->
+    <div class="dash-bookings-section">
+      <div class="dbs-header">
+        <h3>My Bookings</h3>
+        <a href="/book" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Book New Service</a>
+      </div>
+
+      {% if bookings %}
+      <div class="bookings-table-wrap">
+        <table class="bookings-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Service</th>
+              <th>Detail</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+              <th>Booked On</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for b in bookings %}
+            <tr>
+              <td>{{ b.id }}</td>
+              <td><strong>{{ b.service_type }}</strong></td>
+              <td>{{ b.service_detail or '—' }}</td>
+              <td>{{ b.preferred_date }}</td>
+              <td>{{ b.preferred_time }}</td>
+              <td>
+                <span class="status-badge status-{{ b.status.lower() }}">
+                  {% if b.status == 'Pending' %}<i class="fas fa-clock"></i>
+                  {% elif b.status == 'Confirmed' %}<i class="fas fa-check"></i>
+                  {% elif b.status == 'Completed' %}<i class="fas fa-check-double"></i>
+                  {% elif b.status == 'Cancelled' %}<i class="fas fa-times"></i>
+                  {% endif %}
+                  {{ b.status }}
+                </span>
+              </td>
+              <td>{{ b.created_at.strftime('%d %b %Y') }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="empty-state">
+        <i class="fas fa-calendar-times"></i>
+        <h3>No Bookings Yet</h3>
+        <p>You haven't booked any services yet. Click below to get started!</p>
+        <a href="/book" class="btn btn-primary btn-lg"><i class="fas fa-calendar-check"></i> Book Your First Service</a>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
